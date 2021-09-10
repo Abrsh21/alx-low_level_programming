@@ -1,16 +1,24 @@
 #include "main.h"
 /**
-* string_toupper - prints a string, in reverse,
+* reverse_array - function that prints a string, in reverse,
 *             followed by a new line
-* @string: pointer type char
+* @a: pointer type char
+* @n: pointer type char
 * Return: Always 0 (Success)
 */
-char *string_toupper(char *string)
+void reverse_array(int *a, int n)
 {
-	char *head = string;
+	int *first = a;
+	int tmp;
 
-	for (; *string != '\0'; string++)
-		if (*string >= 'a' && *string <= 'z')
-			*string -= 32;
-	return (head);
+	a += (n - 1);
+
+	while (first <= a)
+	{
+		tmp = *first;
+		*first = *a;
+		*a = tmp;
+		first++;
+		a--;
+	}
 }
